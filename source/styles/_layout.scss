@@ -1,0 +1,108 @@
+
+.app-wrap {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-header {
+  padding: 10px;
+  color: $primary-color-text;
+  background-color: $primary-color;
+  height: 80px;
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+  flex-shrink: 0; //由于用了父类用了flex，所以子类会自动收缩 flex-shrink: 0 是不让它收缩
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  a {
+    color: $primary-color-text;
+    background-color: rgba(0,0,0,0.2);
+  }
+  .button {
+     background: rgba(0, 0, 0, 0.1);
+     padding: 10px 15px;
+     border-radius: 4px;
+   }
+}
+
+.content {
+  background-color: #fafafa;
+  flex-grow: 1; //占据空间设置，默认是0
+  line-height: 1.8;
+  padding: 16px;
+  overflow-y: scroll;
+}
+
+.footer {
+  height: 80px;
+  background-color: $primary-color;
+  border-top: 1px solid rgba(0,0,0,0.1);
+  flex-shrink: 0;
+  display: flex;
+  a {
+    padding: 15px;
+    text-align: center;
+    color: $primary-color-text;
+    border-left: 1px solid rgba(0,0,0,0.1);
+    flex-grow: 1;
+    &:first-child {
+      border-left: 0;
+    }
+    i {
+      display: block;
+      font-size: 25px;
+      color: white;
+      text-shadow: 3px 3px 0 rgba(0,0,0,0.1);
+      padding-bottom: 10px;
+    }
+  }
+}
+
+.sidebar {
+  display: none;
+  width: 200px;
+  background-color: $primary-color;
+  flex-shrink: 0;
+  a.active {
+     color: #fff;
+     background-color: rgba(0,0,0,0.2);
+   }
+
+  h1 {
+     margin: 0;
+     text-align: center;
+     padding: 20px;
+     color: #fff;
+     border-bottom: 2px solid #fff59d;
+  }
+
+  a {
+    display: flex;
+    padding: 20px;
+    font-size: 18px;
+    color: $primary-color-text;
+    &:hover {
+     background-color: rgba(0,0,0,0.1);
+   }
+   i {
+      color: #fff;
+      text-shadow: 3px 3px 0 rgba(0,0,0,0.1);
+      display: inline-block;
+      margin-right: 10px;
+    }
+  }
+}
+
+@media (min-width: 800px) {
+  .app-wrap {
+    flex-direction: row;
+  }
+  .app-header, .footer {
+    display: none;
+  }
+  .sidebar {
+    display: flex;
+    flex-direction: column;
+  }
+}
